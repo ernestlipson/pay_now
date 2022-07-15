@@ -22,6 +22,7 @@ class ButtonsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
       height: 60,
       minWidth: 100,
       elevation: 0.5,

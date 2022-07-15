@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pay_now/widgets/buttons_widget.dart';
 
 import '../utils/colors.dart';
+import 'btm_navigation.dart';
 import 'dashboard.dart';
 
 class CustomHomePage extends StatelessWidget {
@@ -23,15 +24,31 @@ class CustomHomePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          ButtonsWidget(
-            size: 20,
-            icon: Icons.send,
-            text: 'Send Money',
-            color: AppColors.mainColorBox,
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ButtonsWidget(
+                size: 20,
+                icon: Icons.send,
+                text: 'Send Money',
+                color: AppColors.mainColorBox,
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              ButtonsWidget(
+                size: 20,
+                icon: Icons.send,
+                text: 'Send Money',
+                color: AppColors.mainColor,
+              )
+            ],
+          ),
+
           //TODO: Custom Widgets
         ],
       ),
+      bottomNavigationBar: const MyBottomNavigation(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:pay_now/Home/scrollable_listview.dart';
 import 'package:pay_now/widgets/buttons_widget.dart';
 
 import '../utils/colors.dart';
@@ -12,7 +13,7 @@ class CustomHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    dynamic size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: const Dashboard(),
@@ -22,11 +23,11 @@ class CustomHomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: 20,
+            height: size.height,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children: const [
               ButtonsWidget(
                 size: 20,
                 icon: Icons.send,
@@ -44,6 +45,18 @@ class CustomHomePage extends StatelessWidget {
               )
             ],
           ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              //TODO: Transactions and ViewAll
+              Text('Transactions'),
+              Text('View All'),
+            ],
+          ),
+          // const MyListView(),
 
           //TODO: Custom Widgets
         ],

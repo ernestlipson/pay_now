@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'Home/my_home_page.dart';
+import 'package:pay_now/pages/myProfile.dart';
+import 'package:pay_now/pages/settings.dart';
 
 void main() {
   runApp(const PayNow());
@@ -17,6 +17,7 @@ class PayNow extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage());
+        home: const MyProfilePage());
+    // const MyHomePage());
   }
 }

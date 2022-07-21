@@ -8,7 +8,7 @@ class MyBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.red,
-      height: 90,
+      height: 80,
       child: Center(
         child: Container(
           decoration: BoxDecoration(

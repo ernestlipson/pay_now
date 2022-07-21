@@ -1,0 +1,9 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="view_icon" opacity="0.195291">
+<rect id="Rectangle" opacity="0.01" width="24" height="24" fill="white"/>
+<g id="eye">
+<path id="Path" fill-rule="evenodd" clip-rule="evenodd" d="M21 12C21 13.9706 16.9706 18 12 18C7.02944 18 3 13.9706 3 12C3 10.0294 7.02944 6 12 6C16.9706 6 21 10.0294 21 12Z" stroke="black" stroke-width="2"/>
+<circle id="Oval" cx="12" cy="12" r="3" stroke="black" stroke-width="2"/>
+</g>
+</g>
+</svg>

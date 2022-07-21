@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pay_now/pages/myProfile.dart';
-import 'package:pay_now/pages/settings.dart';
+import 'package:get/get.dart';
+import 'package:pay_now/pages/screens/splash/onboard.dart';
+import 'package:pay_now/pages/screens/splashscreenhome.dart';
+
+import 'pages/screens/account_splashscreen.dart';
 
 void main() {
   runApp(const PayNow());
@@ -11,13 +14,14 @@ class PayNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          fontFamily: 'SF-Pro-Rounded',
+          // textTheme: TextTheme(bodyText1: TextStyle()),
         ),
-        home: const MyProfilePage());
-    // const MyHomePage());
+        home: const OnBoard());
   }
 }

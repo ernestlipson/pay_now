@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pay_now/state/appstate.dart';
 import 'package:pay_now/utils/colors.dart';
+import 'package:provider/provider.dart';
 
 class MyBottomNavigation extends StatelessWidget {
   const MyBottomNavigation({Key? key}) : super(key: key);
@@ -30,13 +33,12 @@ class MyBottomNavigation extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  debugPrint('Click ok');
+                  Provider.of<AppState>(context, listen: false)
+                      .setCurrentButtomPage(0);
                 },
                 child: Column(
-                  children: const [
-                    Icon(
-                      Icons.home,
-                    ),
+                  children: [
+                    SvgPicture.asset('assets/icons/home_icon.svg'),
                     Text(
                       'Home',
                     ),
@@ -44,12 +46,13 @@ class MyBottomNavigation extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Provider.of<AppState>(context, listen: false)
+                      .setCurrentButtomPage(1);
+                },
                 child: Column(
-                  children: const [
-                    Icon(
-                      Icons.transfer_within_a_station_rounded,
-                    ),
+                  children: [
+                    SvgPicture.asset('assets/icons/arrows_icon.svg'),
                     Text(
                       'Transactions',
                     ),
@@ -57,12 +60,13 @@ class MyBottomNavigation extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Provider.of<AppState>(context, listen: false)
+                      .setCurrentButtomPage(2);
+                },
                 child: Column(
-                  children: const [
-                    Icon(
-                      Icons.group,
-                    ),
+                  children: [
+                    SvgPicture.asset('assets/icons/contacts_icon.svg'),
                     Text(
                       'Contacts',
                     ),
@@ -70,12 +74,13 @@ class MyBottomNavigation extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Provider.of<AppState>(context, listen: false)
+                      .setCurrentButtomPage(3);
+                },
                 child: Column(
-                  children: const [
-                    Icon(
-                      Icons.person,
-                    ),
+                  children: [
+                    SvgPicture.asset('assets/icons/user_icon.svg'),
                     Text(
                       'Profile',
                     ),

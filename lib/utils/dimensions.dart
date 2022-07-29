@@ -8,6 +8,7 @@ class Dimensions {
 
   static double pageView = deviceScreenHeight / 3.03;
   static double pageViewText = deviceScreenHeight / 6.03;
+  static double dashBorardHeight = deviceScreenHeight / 2.2;
 
   // borderRadiusDimension
   static double borderRadius = deviceScreenHeight / 36.6;

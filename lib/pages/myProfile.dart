@@ -59,54 +59,62 @@ class MyProfilePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 70,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: ListTile(
-                onTap: () {},
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                leading: Icon(Icons.card_membership_sharp),
-                title: CustomText(text: 'My Cards'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                tileColor: Color(0xfff3f4f5),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-            ),
-            Container(
-              height: 70,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: ListTile(
-                onTap: () {},
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                leading: Icon(Icons.settings),
-                title: CustomText(text: 'Settings'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                tileColor: Color(0xfff3f4f5),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-            ),
-            Container(
-              height: 70,
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: ListTile(
-                onTap: () {},
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                leading: Icon(Icons.help),
-                title: CustomText(text: 'Help Center'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                tileColor: Color(0xfff3f4f5),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+              height: 100,
+              child: Column(
+                children: [
+                  Container(
+                    height: 70,
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: ListTile(
+                      onTap: () {},
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      leading: Icon(Icons.card_membership_sharp),
+                      title: CustomText(text: 'My Cards'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      tileColor: Color(0xfff3f4f5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                  Container(
+                    height: 70,
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: ListTile(
+                      onTap: () {},
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      leading: Icon(Icons.settings),
+                      title: CustomText(text: 'Settings'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      tileColor: Color(0xfff3f4f5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                  Container(
+                    height: 70,
+                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: ListTile(
+                      onTap: () {},
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                      leading: Icon(Icons.help),
+                      title: CustomText(text: 'Help Center'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      tileColor: Color(0xfff3f4f5),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: const MyBottomNavigation(),
+
+      // bottomNavigationBar: const MyBottomNavigation(),
     );
   }
 }

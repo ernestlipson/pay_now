@@ -23,6 +23,7 @@ class CustomText extends StatelessWidget {
       overflow: overFlow,
       style: TextStyle(
         color: color,
+        fontFamily: 'SF Pro Rounded',
         fontWeight: myweight,
         fontSize: size,
       ),

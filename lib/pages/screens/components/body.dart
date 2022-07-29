@@ -4,6 +4,7 @@ import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/dimensions.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,6 +14,23 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  PageController pageController = PageController(viewportFraction: 0.9);
+
+  var _currentPageVal = 0.0;
+  final double _scaleFactor = 0.8;
+  final double _height = Dimensions.pageViewContainer;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController.addListener(() {
+      setState(() {
+        _currentPageVal = pageController.page!;
+        debugPrint('Current Page is $_currentPageVal');
+      });
+    });
+  }
+
   List<Map<dynamic, dynamic>> onBoardData = [
     {
       'text': 'Add all accounts and manage',
@@ -34,6 +52,8 @@ class _BodyState extends State<Body> {
   ];
   @override
   Widget build(BuildContext context) {
+    final defaultDeviceHeight = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: SizedBox(
         height: double.infinity,
@@ -42,6 +62,7 @@ class _BodyState extends State<Body> {
             Expanded(
               flex: 3,
               child: PageView.builder(
+                  controller: pageController,
                   itemCount: onBoardData.length,
                   itemBuilder: (context, index) {
                     return OnBoardContent(
@@ -53,7 +74,36 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               flex: 2,
-              child: SizedBox(),
+              child: SizedBox(
+                child: DotsIndicator(
+                  dotsCount: onBoardData.length,
+                  position: _currentPageVal,
+                  decorator: DotsDecorator(
+                    activeColor: AppColors.mainColor,
+                    size: Size.square(9.0),
+                    activeSize: Size(18.0, 9.0),
+                    activeShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
+                  ),
+                ),
+              ),
+            ),
+            MaterialButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  defaultDeviceHeight / 51.6,
+                ),
+              ),
+              minWidth: 350,
+              height: MediaQuery.of(context).size.height / 12,
+              elevation: 0,
+              color: AppColors.mainColor,
+              onPressed: () {},
+              child: CustomText(
+                text: 'Get Started',
+                size: defaultDeviceHeight / 38.3,
+                color: Colors.white,
+              ),
             ),
             // SvgPicture.asset(assetName)
           ],
@@ -77,7 +127,7 @@ class OnBoardContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Spacer(),
+        const Spacer(),
         Padding(
           padding: EdgeInsets.all(Dimensions.margin30),
           child: Row(

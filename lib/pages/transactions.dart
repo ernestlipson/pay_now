@@ -5,8 +5,6 @@ import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
-import '../widgets/buttons_widget.dart';
-
 class Transactions extends StatefulWidget {
   const Transactions({Key? key}) : super(key: key);
 
@@ -35,8 +33,9 @@ class _TransactionsState extends State<Transactions> {
                     myweight: FontWeight.bold,
                   ),
                   GestureDetector(
-                      onTap: () {},
-                      child: SvgPicture.asset('assets/icons/search_icon.svg')),
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/icons/search_icon.svg'),
+                  ),
                 ],
               ),
             ),

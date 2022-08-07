@@ -13,6 +13,7 @@ class ButtonsWidget extends StatelessWidget {
   final Color? color;
   final String svgfile;
   final double? size;
+  void onPressed() {}
 
   ButtonsWidget({
     Key? key,
@@ -22,6 +23,7 @@ class ButtonsWidget extends StatelessWidget {
     this.size,
     this.textColor,
     this.iconColor,
+    // required this.onPressed
   }) : super(key: key);
 
   @override
@@ -37,7 +39,7 @@ class ButtonsWidget extends StatelessWidget {
       height: size.height * 0.08,
       minWidth: size.width * 0.3,
       elevation: 0.2,
-      onPressed: () {},
+      onPressed: onPressed,
       color: color,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

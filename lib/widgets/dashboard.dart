@@ -10,6 +10,7 @@ import 'package:pay_now/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:pay_now/utils/dimensions.dart';
 import 'package:pay_now/widgets/CustomText.dart';
+import 'package:pay_now/widgets/customSmallText.dart';
 
 import 'buttons_widget.dart';
 
@@ -29,9 +30,12 @@ class Dashboard extends StatelessWidget implements PreferredSizeWidget {
         left: defaultPadding,
         right: defaultPadding,
       ),
+      height: size.height / 2.652,
+      color: AppColors.mainColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -46,28 +50,33 @@ class Dashboard extends StatelessWidget implements PreferredSizeWidget {
               ),
             ],
           ),
-          CustomText(
-            text: 'Hi, Amanda!',
-            color: Colors.white.withOpacity(0.4),
+          const Spacer(),
+          CustomTextSmall(
+            smallText: 'Hi, Amanda!',
+            smallColor: Colors.white.withOpacity(0.4),
           ),
+          SizedBox(height: size.height * 0.015),
           CustomText(
             text: 'Total Balance',
             color: Colors.white,
+            size: size.height * 0.025,
           ),
+          SizedBox(height: size.height * 0.015),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomText(
-                text: '\$124.57',
+                text: '124.57',
                 color: Colors.white,
+                myweight: FontWeight.bold,
+                size: size.height * 0.05,
               ),
               SvgPicture.asset('assets/icons/notifications _icon.svg')
             ],
           ),
+          const Spacer(),
         ],
       ),
-      height: size.height / 2.652,
-      color: AppColors.mainColor,
     );
   }
 }

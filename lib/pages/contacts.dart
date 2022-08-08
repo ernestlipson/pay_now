@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pay_now/pages/authentication/sendmoney.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
@@ -56,20 +57,67 @@ class _ContactsState extends State<Contacts> {
             ),
             const SizedBox(height: defaultPadding),
             SizedBox(
-              height: 380,
+              height: size.height * 0.56,
               child: ListView.separated(
                   itemBuilder: ((context, index) => ListTile(
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 0),
-                        leading: CircleAvatar(),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: defaultPadding),
+                        leading: const CircleAvatar(
+                            // backgroundImage: ExactAssetImage(
+                            //     'assets/images/avatars/christopher.jpg'),
+                            // minRadius: 30,
+                            // maxRadius: 50,
+                            ),
                         title: CustomText(text: 'James Osborn'),
                         subtitle: CustomText(
                           text: 'Ahmed43Rui@gmai.com',
                           size: 15,
                           color: AppColors.textColor.withOpacity(0.5),
                         ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            MaterialButton(
+                              onPressed: () {
+                                //             Navigator.pushReplacement(context,
+                                // MaterialPageRoute(builder: (context) => MyLandingPage()));
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SendMoney(),
+                                  ),
+                                );
+                              },
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(size.height / 60.6),
+                              ),
+                              minWidth: 50,
+                              height: MediaQuery.of(context).size.height / 12,
+                              elevation: 0,
+                              color: AppColors.mainColorBox,
+                              child: SvgPicture.asset(
+                                  'assets/icons/send_icon.svg'),
+                            ),
+                            const SizedBox(width: 6),
+                            MaterialButton(
+                              onPressed: () {},
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(size.height / 60.6),
+                              ),
+                              minWidth: 50,
+                              height: MediaQuery.of(context).size.height / 12,
+                              elevation: 0,
+                              color: AppColors.mainColor,
+                              child: SvgPicture.asset(
+                                  'assets/icons/request_icon.svg'),
+                            ),
+                          ],
+                        ),
                       )),
-                  separatorBuilder: (context, index) => SizedBox(height: 5),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 5),
                   itemCount: 15),
             ),
           ],

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
+import 'package:pay_now/widgets/bottomButton.dart';
+import 'package:pay_now/widgets/btm_navigation.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
 class SendMoney extends StatefulWidget {
@@ -15,39 +18,162 @@ class _SendMoneyState extends State<SendMoney> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(defaultPadding),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: SvgPicture.asset('assets/icons/add_icon.svg'),
-                ),
-                CustomText(
-                  text: 'Send Money',
-                  size: size.height * 0.035,
-                  myweight: FontWeight.bold,
-                ),
-                Container(),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(defaultPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: SvgPicture.asset('assets/icons/back_icon.svg'),
+                  ),
+                  CustomText(
+                    text: 'Send Money',
+                    size: size.height * 0.035,
+                    myweight: FontWeight.bold,
+                  ),
+                  Container(),
+                ],
+              ),
             ),
-          ),
-          const Divider(thickness: 1),
-          Container(
-            padding: const EdgeInsets.all(defaultPadding),
-            margin: const EdgeInsets.all(defaultmargin),
-            child: ListTile(
-              title: CustomText(text: 'John Osborn'),
-              subtitle: CustomTextSmall(smallText: 'JohnOsborn@gmail.com'),
-              leading: CircleAvatar(),
+            const Divider(thickness: 1),
+            const SizedBox(height: defaultPadding / 1.5),
+            Container(
+              padding: const EdgeInsets.all(defaultPadding),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: AppColors.roundedBoxColor,
+                    radius: size.height / 16.6,
+                    child: CustomText(
+                      text: 'J',
+                      size: size.height * 0.07,
+                      myweight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(width: size.height * 0.03),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(text: 'John Osborn'),
+                      SizedBox(height: size.height * 0.005),
+                      CustomTextSmall(
+                        smallText: 'JohnOsborn@gmail.com',
+                        smallColor: AppColors.textColor.withOpacity(0.5),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          CustomText(text: 'Payment Amount'),
-        ],
+            SizedBox(height: size.height * 0.02),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(text: 'Payment Amount'),
+                  SizedBox(height: size.height * 0.015),
+                  TextFormField(
+                    autocorrect: true,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(size.height / 50.0),
+                        borderSide: BorderSide(color: AppColors.mainColorBox),
+                      ),
+                      hintText: 'Enter amanount to send',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(size.height / 50.0),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.02),
+                  CustomText(text: 'Payment Note'),
+                  SizedBox(height: size.height * 0.015),
+                  TextField(
+                    maxLines: 5,
+                    autocorrect: true,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(size.height / 50.0),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(size.height / 50.0),
+                        borderSide: BorderSide(color: AppColors.mainColorBox),
+                      ),
+                      hintText: 'Add Pay note',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(size.height / 50.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //TODO: Bottom Naviagation Bar
+          ],
+        ),
+        bottomNavigationBar: BottomButton(
+          btnOnPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                          50,
+                        ),
+                      ),
+                      padding: EdgeInsets.all(defaultPadding),
+                      height: 420,
+                      width: 150,
+                      child: Column(
+                        children: [
+                          SvgPicture.asset(
+                              'assets/icons/sent_illustration.svg'),
+                          CustomText(
+                              text: 'The amount has been sent \nsuccessfully!'),
+                          const Spacer(),
+                          MaterialButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                size.height / 51.6,
+                              ),
+                            ),
+                            minWidth: 350,
+                            height: MediaQuery.of(context).size.height / 12,
+                            elevation: 0,
+                            color: AppColors.mainColor,
+                            onPressed: () {},
+                            child: CustomText(
+                              text: 'Ok, Thanks',
+                              size: size.height / 38.3,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                });
+          },
+          buttonText: 'Send Payment',
+          buttonColor: AppColors.mainColorBox,
+          svgfile: 'assets/icons/send_icon.svg',
+        ),
       ),
     );
   }

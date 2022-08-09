@@ -7,14 +7,14 @@ import 'package:pay_now/widgets/bottomButton.dart';
 import 'package:pay_now/widgets/btm_navigation.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
-class SendMoney extends StatefulWidget {
-  const SendMoney({Key? key}) : super(key: key);
+class RequestMoney extends StatefulWidget {
+  const RequestMoney({Key? key}) : super(key: key);
 
   @override
-  State<SendMoney> createState() => _SendMoneyState();
+  State<RequestMoney> createState() => _RequestMoneyState();
 }
 
-class _SendMoneyState extends State<SendMoney> {
+class _RequestMoneyState extends State<RequestMoney> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,7 +35,7 @@ class _SendMoneyState extends State<SendMoney> {
                     child: SvgPicture.asset('assets/icons/back_icon.svg'),
                   ),
                   CustomText(
-                    text: 'Send Money',
+                    text: 'Request Money',
                     size: size.height * 0.035,
                     myweight: FontWeight.bold,
                   ),
@@ -79,7 +79,7 @@ class _SendMoneyState extends State<SendMoney> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(text: 'Payment Amount'),
+                  CustomText(text: 'Request Amount'),
                   SizedBox(height: size.height * 0.015),
                   TextFormField(
                     autocorrect: true,
@@ -87,16 +87,16 @@ class _SendMoneyState extends State<SendMoney> {
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(size.height / 50.0),
-                        borderSide: BorderSide(color: AppColors.mainColorBox),
+                        borderSide: BorderSide(color: AppColors.mainColor),
                       ),
-                      hintText: 'Enter amanount to send',
+                      hintText: 'Enter request amanount',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(size.height / 50.0),
                       ),
                     ),
                   ),
                   SizedBox(height: size.height * 0.02),
-                  CustomText(text: 'Payment Note'),
+                  CustomText(text: 'Request Note'),
                   SizedBox(height: size.height * 0.015),
                   TextField(
                     maxLines: 5,
@@ -109,9 +109,9 @@ class _SendMoneyState extends State<SendMoney> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(size.height / 50.0),
-                        borderSide: BorderSide(color: AppColors.mainColorBox),
+                        borderSide: BorderSide(color: AppColors.mainColor),
                       ),
-                      hintText: 'Add Pay note',
+                      hintText: 'Add Request note',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(size.height / 50.0),
                       ),
@@ -143,14 +143,15 @@ class _SendMoneyState extends State<SendMoney> {
                       height: 420,
                       width: 150,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                               'assets/icons/sent_illustration.svg'),
                           const Spacer(),
                           Column(
                             children: [
-                              CustomText(text: 'The amount has been sent'),
-                              CustomText(text: 'successfully!')
+                              CustomText(text: 'The amount has been'),
+                              CustomText(text: 'received successfully!')
                             ],
                           ),
                           const Spacer(),
@@ -177,9 +178,10 @@ class _SendMoneyState extends State<SendMoney> {
                   );
                 });
           },
-          buttonText: 'Send Payment',
-          buttonColor: AppColors.mainColorBox,
-          svgfile: 'assets/icons/send_icon.svg',
+          buttonText: 'Request Payment',
+          textColor: Colors.white,
+          buttonColor: AppColors.mainColor,
+          svgfile: 'assets/icons/request_icon.svg',
         ),
       ),
     );

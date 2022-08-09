@@ -5,12 +5,12 @@ class CustomText extends StatelessWidget {
   final String text;
   double size;
   FontWeight? myweight;
-  TextOverflow overFlow;
+  TextOverflow? overFlow;
   CustomText({
     Key? key,
     this.color = const Color(0xFF332d2b),
     required this.text,
-    this.overFlow = TextOverflow.ellipsis,
+    this.overFlow,
     this.size = 20.0,
     this.myweight,
   }) : super(key: key);

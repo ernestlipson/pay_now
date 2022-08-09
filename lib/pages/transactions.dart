@@ -92,14 +92,16 @@ class _TransactionsState extends State<Transactions> {
             ),
             //TODO: ListView
             SizedBox(
-              height: 300,
+              height: 385,
               child: ListView.separated(
-                  physics: const ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: ((context, index) => Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CustomTextSmall(smallText: 'September,2022'),
                           ListView.separated(
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: 5,
                             separatorBuilder:

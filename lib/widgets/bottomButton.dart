@@ -7,7 +7,6 @@ import 'CustomText.dart';
 class BottomButton extends StatelessWidget {
   final String buttonText;
   Color? textColor;
-  Color? iconColor;
   final Color? buttonColor;
   final String svgfile;
   void btnPress = () {};
@@ -17,6 +16,7 @@ class BottomButton extends StatelessWidget {
   BottomButton({
     Key? key,
     required this.buttonText,
+    this.textColor,
     this.buttonColor,
     required this.svgfile,
     required this.btnOnPressed,

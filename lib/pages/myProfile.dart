@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pay_now/pages/mycards.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 
@@ -72,7 +73,14 @@ class MyProfilePage extends StatelessWidget {
                   height: size.height * 0.083,
                   child: Center(
                     child: ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MyCards(),
+                          ),
+                        );
+                      },
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: defaultPadding,
                           vertical: defaultPadding * 0.2),

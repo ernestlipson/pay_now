@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pay_now/pages/authentication/sendmoney.dart';
+import 'package:pay_now/pages/request_money.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
@@ -71,7 +72,7 @@ class _ContactsState extends State<Contacts> {
                         title: CustomText(text: 'James Osborn'),
                         subtitle: CustomText(
                           text: 'Ahmed43Rui@gmai.com',
-                          size: 15,
+                          size: size.height * 0.019,
                           color: AppColors.textColor.withOpacity(0.5),
                         ),
                         trailing: Row(
@@ -101,7 +102,14 @@ class _ContactsState extends State<Contacts> {
                             ),
                             const SizedBox(width: 6),
                             MaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  (MaterialPageRoute(
+                                    builder: (context) => RequestMoney(),
+                                  )),
+                                );
+                              },
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(size.height / 60.6),

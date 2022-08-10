@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pay_now/pages/authentication/sendmoney.dart';
+import 'package:pay_now/pages/sendmoney.dart';
 import 'package:pay_now/pages/request_money.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
@@ -19,8 +19,10 @@ class _ContactsState extends State<Contacts> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    debugPrint('width: ${size.width}, height: ${size.height}');
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Column(
           children: [
@@ -32,7 +34,7 @@ class _ContactsState extends State<Contacts> {
                   Container(),
                   CustomText(
                     text: 'Contacts',
-                    size: size.height * 0.035,
+                    size: size.height * defaultHeadingSize,
                     myweight: FontWeight.bold,
                   ),
                   InkWell(
@@ -56,19 +58,14 @@ class _ContactsState extends State<Contacts> {
                 obscureText: true,
               ),
             ),
-            const SizedBox(height: defaultPadding),
+            SizedBox(height: size.height * 0.005),
             SizedBox(
-              height: size.height * 0.56,
+              height: size.height * 0.57,
               child: ListView.separated(
                   itemBuilder: ((context, index) => ListTile(
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: defaultPadding),
-                        leading: const CircleAvatar(
-                            // backgroundImage: ExactAssetImage(
-                            //     'assets/images/avatars/christopher.jpg'),
-                            // minRadius: 30,
-                            // maxRadius: 50,
-                            ),
+                        // contentPadding: const EdgeInsets.symmetric(
+                        //     horizontal: defaultPadding),
+                        leading: const CircleAvatar(),
                         title: CustomText(text: 'James Osborn'),
                         subtitle: CustomText(
                           text: 'Ahmed43Rui@gmai.com',
@@ -80,21 +77,14 @@ class _ContactsState extends State<Contacts> {
                           children: [
                             MaterialButton(
                               onPressed: () {
-                                //             Navigator.pushReplacement(context,
-                                // MaterialPageRoute(builder: (context) => MyLandingPage()));
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SendMoney(),
-                                  ),
-                                );
+                                navigatePush(context, SendMoney());
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(size.height / 60.6),
                               ),
-                              minWidth: 50,
-                              height: MediaQuery.of(context).size.height / 12,
+                              minWidth: size.width * 0.05,
+                              height: MediaQuery.of(context).size.height / 14,
                               elevation: 0,
                               color: AppColors.mainColorBox,
                               child: SvgPicture.asset(
@@ -103,19 +93,14 @@ class _ContactsState extends State<Contacts> {
                             const SizedBox(width: 6),
                             MaterialButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  (MaterialPageRoute(
-                                    builder: (context) => RequestMoney(),
-                                  )),
-                                );
+                                navigatePush(context, RequestMoney());
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(size.height / 60.6),
                               ),
-                              minWidth: 50,
-                              height: MediaQuery.of(context).size.height / 12,
+                              minWidth: size.width * 0.05,
+                              height: MediaQuery.of(context).size.height / 14,
                               elevation: 0,
                               color: AppColors.mainColor,
                               child: SvgPicture.asset(
@@ -125,8 +110,8 @@ class _ContactsState extends State<Contacts> {
                         ),
                       )),
                   separatorBuilder: (context, index) =>
-                      const SizedBox(height: 5),
-                  itemCount: 15),
+                      const SizedBox(height: 2),
+                  itemCount: 20),
             ),
           ],
         ),

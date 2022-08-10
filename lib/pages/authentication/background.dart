@@ -21,12 +21,12 @@ class Background extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Positioned(
-              child: Image.asset(
-                'assets/images/673-6737233_chungha-png.png',
-                width: size.height * 0.9,
-              ),
-            ),
+            // Positioned(
+            //   child: Image.asset(
+            //     'assets/images/673-6737233_chungha-png.png',
+            //     width: size.height * 0.9,
+            //   ),
+            // ),
             child,
           ],
         ),

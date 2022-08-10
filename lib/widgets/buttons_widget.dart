@@ -37,7 +37,7 @@ class ButtonsWidget extends StatelessWidget {
         ),
       ),
       height: size.height * 0.08,
-      minWidth: size.width * 0.3,
+      minWidth: size.width * 0.2,
       elevation: 0.2,
       onPressed: onPressed,
       color: color,
@@ -49,7 +49,7 @@ class ButtonsWidget extends StatelessWidget {
             svgfile,
             color: iconColor,
           ),
-          const SizedBox(width: 3),
+          // const SizedBox(width: 1),
           Text(
             text,
             style: TextStyle(

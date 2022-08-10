@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pay_now/utils/colors.dart';
 
-import '../../widgets/CustomText.dart';
+import '../../../widgets/CustomText.dart';
 
 class SplashHome extends StatelessWidget {
   const SplashHome({Key? key}) : super(key: key);

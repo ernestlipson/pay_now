@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pay_now/state/appstate.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
+import 'package:provider/provider.dart';
 
 class Transactions extends StatefulWidget {
   const Transactions({Key? key}) : super(key: key);
@@ -29,7 +31,7 @@ class _TransactionsState extends State<Transactions> {
                   Container(),
                   CustomText(
                     text: 'Transactions',
-                    size: size.height * 0.035,
+                    size: size.height * defaultHeadingSize,
                     myweight: FontWeight.bold,
                   ),
                   GestureDetector(
@@ -41,58 +43,61 @@ class _TransactionsState extends State<Transactions> {
             ),
             const Divider(thickness: 1),
             Container(
+              padding: EdgeInsets.all(size.height * 0.009),
+              margin: EdgeInsets.all(defaultPadding),
               decoration: BoxDecoration(
                   color: AppColors.roundedBoxColor,
                   borderRadius: BorderRadius.circular(size.height / 36.5)),
-              margin: const EdgeInsets.symmetric(
-                  vertical: defaultmargin, horizontal: defaultmargin),
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            size.height / 51.6,
-                          ),
-                        ),
-                        minWidth: 100,
-                        height: MediaQuery.of(context).size.height / 12,
-                        elevation: 0,
-                        // color: AppColors.mainColorBox,
-                        child: CustomText(
-                          text: 'Incomes',
-                          size: size.height / 38.3,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: MaterialButton(
+                      onPressed: () {
+                        context.read<AppState>().setTransactionIndex(0);
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          size.height / 51.6,
                         ),
                       ),
-                    ),
-                    Expanded(
-                      child: MaterialButton(
-                        onPressed: () {},
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            size.height / 51.6,
-                          ),
-                        ),
-                        minWidth: 100,
-                        height: MediaQuery.of(context).size.height / 12,
-                        elevation: 0,
-                        color: AppColors.mainColorBox,
-                        child: CustomText(
-                          text: 'Expenses',
-                          size: size.height / 38.3,
-                        ),
+                      height: MediaQuery.of(context).size.height / 13.5,
+                      color: context.watch<AppState>().transactionIndex == 0
+                          ? AppColors.mainColorBox
+                          : AppColors.roundedBoxColor,
+                      elevation: 0,
+                      // color: AppColors.mainColorBox,
+                      child: CustomText(
+                        text: 'Incomes',
+                        size: size.height / 38.3,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    child: MaterialButton(
+                      onPressed: () {
+                        context.read<AppState>().setTransactionIndex(1);
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          size.height / 51.6,
+                        ),
+                      ),
+                      height: MediaQuery.of(context).size.height / 13.5,
+                      elevation: 0,
+                      color: context.watch<AppState>().transactionIndex == 1
+                          ? AppColors.mainColorBox
+                          : AppColors.roundedBoxColor,
+                      child: CustomText(
+                        text: 'Expenses',
+                        size: size.height / 38.3,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            //TODO: ListView
             SizedBox(
-              height: 385,
+              height: appSize(context, 'h') / 1.75,
               child: ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -139,7 +144,8 @@ class _TransactionsState extends State<Transactions> {
                           ),
                         ],
                       )),
-                  separatorBuilder: (context, index) => SizedBox(height: 5),
+                  separatorBuilder: (context, index) =>
+                      SizedBox(height: size.height * 0.1),
                   itemCount: 10),
             ),
           ],

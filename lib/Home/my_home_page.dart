@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:pay_now/utils/colors.dart';
-import 'package:pay_now/widgets/Custom_home_page.dart';
+import 'package:pay_now/Home/Custom_home_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

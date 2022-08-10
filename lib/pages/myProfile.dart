@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:pay_now/pages/mycards.dart';
+import 'package:pay_now/pages/profileInfo.dart';
+import 'package:pay_now/pages/settings.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 
@@ -53,7 +56,9 @@ class MyProfilePage extends StatelessWidget {
                   height: size.height * 0.083,
                   child: Center(
                     child: ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        navigatePush(context, AccountInfo());
+                      },
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: defaultPadding,
                           vertical: defaultPadding * 0.2),
@@ -74,12 +79,7 @@ class MyProfilePage extends StatelessWidget {
                   child: Center(
                     child: ListTile(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MyCards(),
-                          ),
-                        );
+                        navigatePush(context, MyCards());
                       },
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: defaultPadding,
@@ -102,7 +102,9 @@ class MyProfilePage extends StatelessWidget {
                   height: size.height * 0.083,
                   child: Center(
                     child: ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        navigatePush(context, MySettingsPage());
+                      },
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: defaultPadding,
                           vertical: defaultPadding * 0.2),

@@ -31,7 +31,9 @@ class _RequestMoneyState extends State<RequestMoney> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                     child: SvgPicture.asset('assets/icons/back_icon.svg'),
                   ),
                   CustomText(

@@ -12,7 +12,7 @@ import 'package:pay_now/utils/dimensions.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
-import 'buttons_widget.dart';
+import '../widgets/buttons_widget.dart';
 
 class Dashboard extends StatelessWidget implements PreferredSizeWidget {
   const Dashboard({Key? key}) : super(key: key);

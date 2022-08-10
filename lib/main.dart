@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pay_now/pages/screens/splash/onboard.dart';
-import 'package:pay_now/pages/screens/splashscreenhome.dart';
+import 'package:pay_now/pages/screens/splash/splashscreenhome.dart';
 import 'package:pay_now/state/appstate.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/authentication/loginPage.dart';
-import 'pages/screens/account_splashscreen.dart';
+import 'pages/screens/splash/account_splashscreen.dart';
 
 // late Size appBarSize;
 

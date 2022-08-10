@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pay_now/Home/scrollable_listview.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/buttons_widget.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
 import '../utils/colors.dart';
-import 'btm_navigation.dart';
+import '../widgets/btm_navigation.dart';
 import 'dashboard.dart';
 
 class CustomHomePage extends StatelessWidget {
@@ -58,7 +59,9 @@ class CustomHomePage extends StatelessWidget {
                     smallSize: size.height * 0.022,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      navigatePush(context, MyListView());
+                    },
                     child: CustomTextSmall(
                       smallText: 'View All',
                       smallFontWeight: FontWeight.bold,

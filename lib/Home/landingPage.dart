@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pay_now/pages/transactions.dart';
 import 'package:pay_now/state/appstate.dart';
-import 'package:pay_now/widgets/Custom_home_page.dart';
+import 'package:pay_now/Home/Custom_home_page.dart';
 import 'package:pay_now/widgets/btm_navigation.dart';
 import 'package:provider/provider.dart';
 

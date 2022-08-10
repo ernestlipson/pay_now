@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pay_now/pages/authentication/sendmoney.dart';
+import 'package:pay_now/pages/sendmoney.dart';
 import 'package:pay_now/pages/request_money.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
@@ -48,16 +48,18 @@ class _MyCardsState extends State<MyCards> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset('assets/icons/back_icon.svg'),
+                  ),
                   CustomText(
                     text: 'My Cards',
                     size: appSize(context, 'h') * 0.035,
                     myweight: FontWeight.bold,
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: SvgPicture.asset('assets/icons/add_icon.svg'),
-                  ),
+                  Container(),
                 ],
               ),
             ),

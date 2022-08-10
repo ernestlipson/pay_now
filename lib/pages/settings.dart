@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:pay_now/utils/constants.dart';
+import 'package:pay_now/widgets/CustomText.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class MySettingsPage extends StatelessWidget {
@@ -8,61 +11,95 @@ class MySettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SettingsList(
-      sections: [
-        SettingsSection(
-          title: Text('General'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.language),
-              title: Text('Language'),
-              value: Text('Change the language of the app'),
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(defaultPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset('assets/icons/back_icon.svg'),
+                  ),
+                  CustomText(
+                    text: 'Settings',
+                    size: appSize(context, 'h') * defaultHeadingSize,
+                    myweight: FontWeight.bold,
+                  ),
+                  Container(),
+                ],
+              ),
             ),
-            SettingsTile.navigation(
-              leading: Icon(Icons.location_on),
-              title: Text('Locations'),
-              value: Text('Add your home and work locations'),
+            Expanded(
+              child: SettingsList(
+                sections: [
+                  SettingsSection(
+                    title: Text('General'),
+                    tiles: <SettingsTile>[
+                      SettingsTile.navigation(
+                        leading:
+                            SvgPicture.asset('assets/icons/language_icon.svg'),
+                        title: Text('Language'),
+                        value: Text('Change the language of the app'),
+                      ),
+                      SettingsTile.navigation(
+                        leading:
+                            SvgPicture.asset('assets/icons/location_icon.svg'),
+                        title: Text('Locations'),
+                        value: Text('Add your home and work locations'),
+                      ),
+                      SettingsTile.switchTile(
+                        onToggle: (value) {},
+                        initialValue: false,
+                        leading: Icon(Icons.nightlight),
+                        title: Text('Enable dark theme'),
+                      ),
+                      // Divider(height: 40,),
+                    ],
+                  ),
+                  SettingsSection(
+                    title: Text('Notifications'),
+                    tiles: <SettingsTile>[
+                      SettingsTile.navigation(
+                        leading: SvgPicture.asset(
+                            'assets/icons/notifications _icon-2.svg'),
+                        title: Text('Push notifications'),
+                        value: Text('For daily updates and others'),
+                      ),
+                      SettingsTile.navigation(
+                        leading: SvgPicture.asset(
+                            'assets/icons/notifications _icon-2.svg'),
+                        title: Text('Promotional notifications'),
+                        value: Text('New campain and offers'),
+                      ),
+                    ],
+                  ),
+                  SettingsSection(
+                    title: Text('More'),
+                    tiles: <SettingsTile>[
+                      SettingsTile.navigation(
+                        leading: SvgPicture.asset('assets/icons/call_icon.svg'),
+                        title: Text('Contact us'),
+                        value: Text('For moreinformation'),
+                      ),
+                      SettingsTile.navigation(
+                        leading:
+                            SvgPicture.asset('assets/icons/logout_icon.svg'),
+                        title: Text('Logout'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            SettingsTile.switchTile(
-              onToggle: (value) {},
-              initialValue: false,
-              leading: Icon(Icons.nightlight),
-              title: Text('Enable dark theme'),
-            ),
-            // Divider(height: 40,),
           ],
         ),
-        SettingsSection(
-          title: Text('Notifications'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.notifications),
-              title: Text('Push notifications'),
-              value: Text('For daily updates and others'),
-            ),
-            SettingsTile.navigation(
-              leading: Icon(Icons.notifications),
-              title: Text('Promotional notifications'),
-              value: Text('New campain and offers'),
-            ),
-          ],
-        ),
-        SettingsSection(
-          title: Text('More'),
-          tiles: <SettingsTile>[
-            SettingsTile.navigation(
-              leading: Icon(Icons.phone),
-              title: Text('Contact us'),
-              value: Text('For moreinformation'),
-            ),
-            SettingsTile.navigation(
-              leading: Icon(Icons.backspace_sharp),
-              title: Text('Logout'),
-              // value: Text('New campain and offers'),
-            ),
-          ],
-        ),
-      ],
+      ),
     );
   }
 }

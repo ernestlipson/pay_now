@@ -77,7 +77,8 @@ class _ContactsState extends State<Contacts> {
                           children: [
                             MaterialButton(
                               onPressed: () {
-                                navigatePush(context, SendMoney());
+                                navigatePush(
+                                    context: context, destination: SendMoney());
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius:
@@ -93,7 +94,9 @@ class _ContactsState extends State<Contacts> {
                             const SizedBox(width: 6),
                             MaterialButton(
                               onPressed: () {
-                                navigatePush(context, RequestMoney());
+                                navigatePush(
+                                    context: context,
+                                    destination: RequestMoney());
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius:

@@ -35,8 +35,8 @@ class BottomButton extends StatelessWidget {
             defaultDeviceHeight.height / 51.6,
           ),
         ),
-        minWidth: defaultDeviceHeight.width * 0.04,
-        height: MediaQuery.of(context).size.height / 11,
+        minWidth: double.infinity,
+        height: MediaQuery.of(context).size.height / 13.5,
         elevation: 0,
         color: buttonColor,
         child: Row(
@@ -45,7 +45,7 @@ class BottomButton extends StatelessWidget {
           children: [
             SvgPicture.asset(
               svgfile,
-              height: defaultDeviceHeight.width * 0.09,
+              height: defaultDeviceHeight.width * 0.075,
               width: defaultDeviceHeight.width * 0.04,
             ),
             SizedBox(width: defaultDeviceHeight.width * 0.03),

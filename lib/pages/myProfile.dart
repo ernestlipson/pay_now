@@ -57,7 +57,8 @@ class MyProfilePage extends StatelessWidget {
                   child: Center(
                     child: ListTile(
                       onTap: () {
-                        navigatePush(context, AccountInfo());
+                        navigatePush(
+                            context: context, destination: AccountInfo());
                       },
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: defaultPadding,
@@ -79,7 +80,7 @@ class MyProfilePage extends StatelessWidget {
                   child: Center(
                     child: ListTile(
                       onTap: () {
-                        navigatePush(context, MyCards());
+                        navigatePush(context: context, destination: MyCards());
                       },
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: defaultPadding,
@@ -103,7 +104,8 @@ class MyProfilePage extends StatelessWidget {
                   child: Center(
                     child: ListTile(
                       onTap: () {
-                        navigatePush(context, MySettingsPage());
+                        navigatePush(
+                            context: context, destination: MySettingsPage());
                       },
                       contentPadding: EdgeInsets.symmetric(
                           horizontal: defaultPadding,

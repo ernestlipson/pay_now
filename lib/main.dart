@@ -2,13 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_now/pages/screens/splash/onboard.dart';
-import 'package:pay_now/pages/screens/splash/splashscreenhome.dart';
+import 'package:pay_now/pages/screens/splash/splashhome.dart';
 import 'package:pay_now/state/appstate.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/authentication/loginPage.dart';
-import 'pages/screens/splash/account_splashscreen.dart';
+import 'pages/screens/splash/create_account_splashscreen.dart';
 
 // late Size appBarSize;
 
@@ -34,10 +33,9 @@ class PayNow extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
-            fontFamily: 'SF-Pro-Rounded',
-            // textTheme: TextTheme(bodyText1: TextStyle()),
+            fontFamily: 'SF Pro Rounded',
           ),
-          home: const MyLogin()),
+          home: const SplashHome()),
     );
   }
 }

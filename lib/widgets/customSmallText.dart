@@ -22,7 +22,7 @@ class CustomTextSmall extends StatelessWidget {
       smallText,
       style: TextStyle(
         color: smallColor,
-        fontFamily: 'SF-Pro-Rounded-Thin.ttf',
+        fontFamily: 'SF Pro Rounded Thin',
         fontWeight: smallFontWeight,
         fontSize: smallSize,
         height: smallTextheight,

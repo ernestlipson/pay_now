@@ -165,7 +165,7 @@ class _SignUpState extends State<SignUp> {
             SizedBox(height: size.height * 0.05),
             GestureDetector(
               onTap: () {
-                navigate(context, MyLogin());
+                navigate(context: context, destination:  MyLogin());
               },
               child: Align(
                 alignment: Alignment.center,

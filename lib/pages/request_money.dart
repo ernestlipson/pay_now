@@ -132,7 +132,7 @@ class _RequestMoneyState extends State<RequestMoney> {
                 builder: (context) {
                   return Dialog(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
+                      borderRadius: BorderRadius.circular(size.height / 51.6),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
@@ -142,11 +142,12 @@ class _RequestMoneyState extends State<RequestMoney> {
                         ),
                       ),
                       padding: const EdgeInsets.all(defaultPadding),
-                      height: 420,
-                      width: 150,
+                      height: size.height / 1.61,
+                      width: size.width / 2.4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          const Spacer(),
                           SvgPicture.asset(
                               'assets/icons/sent_illustration.svg'),
                           const Spacer(),
@@ -164,10 +165,12 @@ class _RequestMoneyState extends State<RequestMoney> {
                               ),
                             ),
                             minWidth: size.width * 0.9,
-                            height: MediaQuery.of(context).size.height / 12,
+                            height: MediaQuery.of(context).size.height / 13.5,
                             elevation: 0,
                             color: AppColors.mainColor,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             child: CustomText(
                               text: 'Ok, Thanks',
                               size: size.height / 38.3,

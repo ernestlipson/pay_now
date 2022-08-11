@@ -19,7 +19,7 @@ appSize(BuildContext context, String flag) {
   }
 }
 
-navigate(BuildContext context, Widget destination) {
+navigate({required BuildContext context, required Widget destination}) {
   Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -27,7 +27,7 @@ navigate(BuildContext context, Widget destination) {
       ));
 }
 
-navigatePush(BuildContext context, Widget destination) {
+navigatePush({required BuildContext context, required Widget destination}) {
   Navigator.push(
       context,
       MaterialPageRoute(

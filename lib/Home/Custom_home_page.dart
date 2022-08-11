@@ -60,7 +60,7 @@ class CustomHomePage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      navigatePush(context, MyListView());
+                      navigatePush(context: context, destination: MyListView());
                     },
                     child: CustomTextSmall(
                       smallText: 'View All',

@@ -1,14 +1,35 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pay_now/utils/colors.dart';
+import 'package:pay_now/utils/constants.dart';
 
 import '../../../widgets/CustomText.dart';
+import 'components/splash_body.dart';
 
-class SplashHome extends StatelessWidget {
+class SplashHome extends StatefulWidget {
   const SplashHome({Key? key}) : super(key: key);
 
   @override
+  State<SplashHome> createState() => _SplashHomeState();
+}
+
+class _SplashHomeState extends State<SplashHome> {
+  void init(BuildContext context) {
+    Future.delayed(Duration(seconds: 3), () {
+      navigate(context: context, destination: SplashOnBoard());
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    init(context);
     final containerBorder = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(

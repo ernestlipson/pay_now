@@ -132,7 +132,9 @@ class _SendMoneyState extends State<SendMoney> {
                 builder: (context) {
                   return Dialog(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
+                      borderRadius: BorderRadius.circular(
+                        size.height / 51.6,
+                      ),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
@@ -142,10 +144,11 @@ class _SendMoneyState extends State<SendMoney> {
                         ),
                       ),
                       padding: const EdgeInsets.all(defaultPadding),
-                      height: 420,
-                      width: 150,
+                      height: size.height / 1.61,
+                      width: size.width / 2.4,
                       child: Column(
                         children: [
+                          const Spacer(),
                           SvgPicture.asset(
                               'assets/icons/sent_illustration.svg'),
                           const Spacer(),
@@ -162,11 +165,13 @@ class _SendMoneyState extends State<SendMoney> {
                                 size.height / 51.6,
                               ),
                             ),
-                            minWidth: size.width * 0.9,
-                            height: MediaQuery.of(context).size.height / 12,
+                            minWidth: double.infinity,
+                            height: MediaQuery.of(context).size.height / 13.5,
                             elevation: 0,
                             color: AppColors.mainColor,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             child: CustomText(
                               text: 'Ok, Thanks',
                               size: size.height / 38.3,

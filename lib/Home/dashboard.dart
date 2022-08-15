@@ -1,32 +1,25 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pay_now/main.dart';
 import 'package:pay_now/utils/assets_images.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
-import 'package:get/get.dart';
-import 'package:pay_now/utils/dimensions.dart';
+
 import 'package:pay_now/widgets/CustomText.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
 
-import '../widgets/buttons_widget.dart';
 
 class Dashboard extends StatelessWidget implements PreferredSizeWidget {
   const Dashboard({Key? key}) : super(key: key);
 
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(250);
-  // TODO: implement media queries
+  Size get preferredSize => const Size.fromHeight(250);
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(bottom: size.height / 26),
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: defaultPadding,
         right: defaultPadding,
       ),

@@ -116,7 +116,7 @@ class _SplashOnBoardState extends State<SplashOnBoard> {
                   btnText: 'Get Started',
                   defaultDeviceSize: defaultDeviceSize,
                   btnPress: () {
-                    navigate(
+                    navigateReplacement(
                         context: context, destination: AccountSplashScreen());
                   },
                 ),
@@ -162,7 +162,7 @@ class OnBoardContent extends StatelessWidget {
                         '${context.watch<AppState>().currentOnBoardPage + 1}/3'),
                 GestureDetector(
                   onTap: () {
-                    navigate(
+                    navigateReplacement(
                         context: context, destination: AccountSplashScreen());
                   },
                   child: CustomText(text: 'Skip', color: AppColors.mainColor),

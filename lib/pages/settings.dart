@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
+import 'package:pay_now/widgets/app_bar.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class MySettingsPage extends StatelessWidget {
@@ -12,29 +13,10 @@ class MySettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MyAppBar(title: 'Settings', widget: Container()),
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SvgPicture.asset('assets/icons/back_icon.svg'),
-                  ),
-                  CustomText(
-                    text: 'Settings',
-                    size: appSize(context, 'h') * defaultHeadingSize,
-                    myweight: FontWeight.bold,
-                  ),
-                  Container(),
-                ],
-              ),
-            ),
             Expanded(
               child: SettingsList(
                 sections: [
@@ -52,12 +34,6 @@ class MySettingsPage extends StatelessWidget {
                             SvgPicture.asset('assets/icons/location_icon.svg'),
                         title: Text('Locations'),
                         value: Text('Add your home and work locations'),
-                      ),
-                      SettingsTile.switchTile(
-                        onToggle: (value) {},
-                        initialValue: false,
-                        leading: Icon(Icons.nightlight),
-                        title: Text('Enable dark theme'),
                       ),
                       // Divider(height: 40,),
                     ],

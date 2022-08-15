@@ -64,42 +64,27 @@ class AccountSplashScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: defaultDeviceHeight.height / 8.6),
-          // MaterialButton(
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(
-          //       defaultDeviceHeight.height / 51.6,
-          //     ),
-          //   ),
-          //   minWidth: 350,
-          //   height: MediaQuery.of(context).size.height / 12,
-          //   elevation: 0,
-          //   color: AppColors.mainColor,
-          //   onPressed: () {},
-          //   child: CustomText(
-          //     text: 'Create new account',
-          //     size: defaultDeviceHeight.height / 38.3,
-          //     color: Colors.white,
-          //   ),
-          // ),
-          //TODO: SIZED BOX
           Container(
             padding: EdgeInsets.symmetric(horizontal: defaultPadding),
             child: DefaultButton(
                 btnText: 'Create new account',
                 defaultDeviceSize: defaultDeviceHeight,
                 btnPress: () {
-                  navigate(context: context, destination: SignUp());
+                  navigateReplacement(context: context, destination: SignUp());
                 }),
           ),
           SizedBox(height: defaultDeviceHeight.height / 22),
           GestureDetector(
             onTap: () {
-              navigate(context: context, destination: MyLogin());
+              navigateReplacement(context: context, destination: MyLogin());
             },
-            child: CustomText(
-              text: 'Already have account?',
-              size: defaultDeviceHeight.height / 42.4,
-              color: AppColors.mainColor,
+            child: Container(
+              padding: EdgeInsets.all(defaultDeviceHeight.width * 0.006),
+              child: CustomText(
+                text: 'Already have account?',
+                size: defaultDeviceHeight.height / 42.4,
+                color: AppColors.mainColor,
+              ),
             ),
           ),
         ],

@@ -18,7 +18,7 @@ class SplashHome extends StatefulWidget {
 class _SplashHomeState extends State<SplashHome> {
   void init(BuildContext context) {
     Future.delayed(Duration(seconds: 3), () {
-      navigate(context: context, destination: SplashOnBoard());
+      navigateReplacement(context: context, destination: SplashOnBoard());
     });
   }
 

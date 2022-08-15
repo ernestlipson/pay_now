@@ -43,8 +43,7 @@ dependencies:
   web3dart: ^2.3.5
   flutter_credit_card: ^3.0.3
   google_sign_in: ^5.4.1
-  firebase_auth: ^3.6.3
-
+  anim_search_bar: ^2.0.2
 
 dev_dependencies:
   flutter_test:

@@ -19,66 +19,30 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool _passwordVisible = false;
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     debugPrint('$size');
 
     return Scaffold(
+      appBar: TitleBar(
+        text1: 'Signup and start',
+        text2: 'transfering',
+      ),
       resizeToAvoidBottomInset: false,
       body: Background(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomText(
-              text: 'Signup and start',
-              myweight: FontWeight.bold,
-              size: size.height * 0.04,
-            ),
-            CustomText(
-              text: 'transfering',
-              myweight: FontWeight.bold,
-              size: size.height * 0.04,
-            ),
-            Spacer(),
-            Row(
-              children: [
-                Expanded(
-                  child: MaterialButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        size.height / 51.6,
-                      ),
-                    ),
-                    height: MediaQuery.of(context).size.height / 12,
-                    minWidth: size.width * 0.45,
-                    elevation: 0,
-                    color: AppColors.roundedBoxColor,
-                    onPressed: () {},
-                    child: CustomText(text: 'Google'),
-                  ),
-                ),
-                SizedBox(width: defaultPadding),
-                Expanded(
-                  child: MaterialButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        size.height / 51.6,
-                      ),
-                    ),
-                    height: MediaQuery.of(context).size.height / 12,
-                    minWidth: size.width * 0.45,
-                    elevation: 0,
-                    color: AppColors.roundedBoxColor,
-                    onPressed: () {},
-                    child: CustomText(
-                      text: 'facebook',
-                      size: size.height / 38.3,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            SizedBox(height: size.height * 0.0010),
+            GoogleFaceBookApi(size: size),
             Spacer(),
             Form(
               child: Column(
@@ -89,94 +53,74 @@ class _SignUpState extends State<SignUp> {
                     smallFontWeight: FontWeight.bold,
                   ),
                   SizedBox(height: size.height * 0.02),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter your email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(size.height / 51.6),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: size.height * 0.045),
+                  EmailInputBox(size: size),
+                  SizedBox(height: size.height * 0.033),
                   CustomTextSmall(
                     smallText: 'Password',
                     smallFontWeight: FontWeight.bold,
                   ),
                   SizedBox(height: size.height * 0.02),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter your password',
-                      suffixIcon: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.visibility)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(size.height / 51.6),
+                  Container(
+                    width: double.infinity,
+                    height: size.height / 13.5,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your password',
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _passwordVisible = !_passwordVisible;
+                            });
+                          },
+                          icon: Icon(
+                            _passwordVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.circular(size.height / 51.6),
+                        ),
                       ),
+                      obscureText: _passwordVisible,
                     ),
-                    obscureText: true,
                   ),
-                  SizedBox(height: size.height * 0.045),
+                  SizedBox(height: size.height * 0.033),
                   CustomTextSmall(
                     smallText: 'Re-enter your password',
                     smallFontWeight: FontWeight.bold,
                   ),
                   SizedBox(height: size.height * 0.02),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter your password again',
-                      suffixIcon: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.visibility)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(size.height / 51.6),
+                  Container(
+                    height: size.height / 13.5,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your password again',
+                        suffixIcon: IconButton(
+                            onPressed: () {}, icon: Icon(Icons.visibility)),
+                        border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.circular(size.height / 51.6),
+                        ),
                       ),
+                      obscureText: true,
                     ),
-                    obscureText: true,
                   ),
                   SizedBox(height: size.height * 0.017),
-                  // Align(
-                  //     alignment: Alignment.centerRight,
-                  //     child: CustomTextSmall(
-                  //       smallText: 'Forget password?',
-                  //       smallColor: AppColors.mainColor,
-                  //     ))
                 ],
               ),
             ),
-            const Spacer(),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  size.height / 51.6,
-                ),
-              ),
-              minWidth: 350,
-              height: MediaQuery.of(context).size.height / 12,
-              elevation: 0,
-              color: AppColors.mainColor,
-              onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => MyLandingPage()));
-              },
-              child: CustomText(
-                text: 'create account',
-                size: size.height / 38.3,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: size.height * 0.05),
-            GestureDetector(
-              onTap: () {
-                navigate(context: context, destination:  MyLogin());
-              },
-              child: Align(
-                alignment: Alignment.center,
-                child: CustomTextSmall(
-                  smallText: 'Already have account?',
-                  smallColor: AppColors.mainColor,
-                ),
-              ),
-            ),
+            // const Spacer(),
           ],
         ),
+      ),
+      bottomNavigationBar: LoginSignUpBottomButton(
+        size: size,
+        btnText: 'Create account',
+        btmActionText: 'Already have account?',
+        btnDestination: MyLandingPage(),
+        btmActionDestination: MyLogin(),
       ),
     );
   }

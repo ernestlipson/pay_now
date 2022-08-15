@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pay_now/pages/transactions.dart';
 import 'package:pay_now/state/appstate.dart';
 import 'package:pay_now/Home/Custom_home_page.dart';
-import 'package:pay_now/widgets/btm_navigation.dart';
+import 'package:pay_now/widgets/myButtons/btm_navigation.dart';
 import 'package:provider/provider.dart';
 
 import '../pages/contacts.dart';
@@ -21,7 +21,7 @@ class _MyLandingPageState extends State<MyLandingPage> {
     return Scaffold(
       body: IndexedStack(
         index: Provider.of<AppState>(context).currentButtomPage,
-        children: [
+        children: const [
           CustomHomePage(),
           Transactions(),
           Contacts(),

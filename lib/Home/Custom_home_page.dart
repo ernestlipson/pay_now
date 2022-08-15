@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pay_now/Home/scrollable_listview.dart';
+import 'package:pay_now/Home/recent_transactions.dart';
+import 'package:pay_now/pages/total_requests.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
-import 'package:pay_now/widgets/buttons_widget.dart';
 import 'package:pay_now/widgets/customSmallText.dart';
+import 'package:pay_now/widgets/myButtons/buttons_widget.dart';
 
 import '../utils/colors.dart';
-import '../widgets/btm_navigation.dart';
 import 'dashboard.dart';
 
 class CustomHomePage extends StatelessWidget {
@@ -30,6 +30,11 @@ class CustomHomePage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ButtonsWidget(
+                      width: double.infinity,
+                      btnPress: () {
+                        navigatePush(
+                            context: context, destination: TotalRequests());
+                      },
                       svgfile: 'assets/icons/send_icon.svg',
                       text: 'Send Money',
                       color: AppColors.mainColorBox,
@@ -40,8 +45,9 @@ class CustomHomePage extends StatelessWidget {
                   ),
                   Expanded(
                     child: ButtonsWidget(
+                      width: double.infinity,
+                      btnPress: () {},
                       svgfile: 'assets/icons/request_icon.svg',
-                      iconColor: Colors.white,
                       text: 'Request Money',
                       textColor: Colors.white,
                       color: AppColors.mainColor,
@@ -71,7 +77,7 @@ class CustomHomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              4 == 3
+              4 == 4
                   ? Container(
                       margin: const EdgeInsets.only(top: defaultmargin),
                       width: double.infinity,
@@ -101,17 +107,20 @@ class CustomHomePage extends StatelessWidget {
                                       const EdgeInsets.symmetric(horizontal: 0),
                                   leading: Stack(
                                     children: [
-                                      CircleAvatar(),
+                                      const CircleAvatar(
+                                        backgroundImage: AssetImage(
+                                            'assets/images/profilepic.jpg'),
+                                      ),
                                       Positioned(
                                         bottom: 0,
                                         right: 0,
                                         child: Material(
                                           color: Colors.white,
+                                          shape: CircleBorder(),
                                           child: SvgPicture.asset(
                                             'assets/icons/send_icon.svg',
                                             color: AppColors.mainColorBox,
                                           ),
-                                          shape: CircleBorder(),
                                         ),
                                       )
                                     ],
@@ -135,7 +144,6 @@ class CustomHomePage extends StatelessWidget {
           ),
         ),
       ),
-      // bottomNavigationBar: const MyBottomNavigation(),
     );
   }
 }

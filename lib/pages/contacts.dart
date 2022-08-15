@@ -5,6 +5,7 @@ import 'package:pay_now/pages/request_money.dart';
 import 'package:pay_now/utils/colors.dart';
 import 'package:pay_now/utils/constants.dart';
 import 'package:pay_now/widgets/CustomText.dart';
+import 'package:pay_now/widgets/app_bar.dart';
 
 import '../widgets/customSmallText.dart';
 
@@ -22,101 +23,99 @@ class _ContactsState extends State<Contacts> {
     debugPrint('width: ${size.width}, height: ${size.height}');
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      appBar: MyAppBar(
+        title: 'Contacts',
+        widget: GestureDetector(
+          child: Container(
+            padding: const EdgeInsets.only(right: defaultPadding),
+            child: SvgPicture.asset('assets/icons/add_icon.svg'),
+          ),
+        ),
+      ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(),
-                  CustomText(
-                    text: 'Contacts',
-                    size: size.height * defaultHeadingSize,
-                    myweight: FontWeight.bold,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: SvgPicture.asset('assets/icons/add_icon.svg'),
-                  ),
-                ],
-              ),
-            ),
-            const Divider(thickness: 1),
-            Container(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Enter a name',
-                  prefixIcon: const Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(size.height / 51.6),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: size.height * 0.125,
+                padding: const EdgeInsets.all(defaultPadding),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter a name',
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(size.height / 51.6),
+                    ),
                   ),
                 ),
-                obscureText: true,
               ),
-            ),
-            SizedBox(height: size.height * 0.005),
-            SizedBox(
-              height: size.height * 0.57,
-              child: ListView.separated(
-                  itemBuilder: ((context, index) => ListTile(
-                        // contentPadding: const EdgeInsets.symmetric(
-                        //     horizontal: defaultPadding),
-                        leading: const CircleAvatar(),
-                        title: CustomText(text: 'James Osborn'),
-                        subtitle: CustomText(
-                          text: 'Ahmed43Rui@gmai.com',
-                          size: size.height * 0.019,
-                          color: AppColors.textColor.withOpacity(0.5),
-                        ),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            MaterialButton(
-                              onPressed: () {
-                                navigatePush(
-                                    context: context, destination: SendMoney());
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(size.height / 60.6),
-                              ),
-                              minWidth: size.width * 0.05,
-                              height: MediaQuery.of(context).size.height / 14,
-                              elevation: 0,
-                              color: AppColors.mainColorBox,
-                              child: SvgPicture.asset(
-                                  'assets/icons/send_icon.svg'),
+              // SizedBox(height: size.height * 0.005),
+              SingleChildScrollView(
+                child: SizedBox(
+                  height: size.height * 0.67,
+                  child: ListView.separated(
+                      itemBuilder: ((context, index) => ListTile(
+                            // contentPadding: const EdgeInsets.all(0),
+                            leading: const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage('assets/images/profilepic.jpg'),
                             ),
-                            const SizedBox(width: 6),
-                            MaterialButton(
-                              onPressed: () {
-                                navigatePush(
-                                    context: context,
-                                    destination: RequestMoney());
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(size.height / 60.6),
-                              ),
-                              minWidth: size.width * 0.05,
-                              height: MediaQuery.of(context).size.height / 14,
-                              elevation: 0,
-                              color: AppColors.mainColor,
-                              child: SvgPicture.asset(
-                                  'assets/icons/request_icon.svg'),
+                            title: CustomText(text: 'James Osborn'),
+                            subtitle: CustomText(
+                              text: 'Ahmed43Rui@gmai.com',
+                              size: size.height * 0.019,
+                              color: AppColors.textColor.withOpacity(0.5),
                             ),
-                          ],
-                        ),
-                      )),
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 2),
-                  itemCount: 20),
-            ),
-          ],
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                MaterialButton(
+                                  onPressed: () {
+                                    navigatePush(
+                                        context: context,
+                                        destination: SendMoney());
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        size.height / 60.6),
+                                  ),
+                                  minWidth: size.width * 0.05,
+                                  height:
+                                      MediaQuery.of(context).size.height / 14,
+                                  elevation: 0,
+                                  color: AppColors.mainColorBox,
+                                  child: SvgPicture.asset(
+                                      'assets/icons/send_icon.svg'),
+                                ),
+                                const SizedBox(width: 6),
+                                MaterialButton(
+                                  onPressed: () {
+                                    navigatePush(
+                                        context: context,
+                                        destination: RequestMoney());
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        size.height / 60.6),
+                                  ),
+                                  minWidth: size.width * 0.05,
+                                  height:
+                                      MediaQuery.of(context).size.height / 14,
+                                  elevation: 0,
+                                  color: AppColors.mainColor,
+                                  child: SvgPicture.asset(
+                                      'assets/icons/request_icon.svg'),
+                                ),
+                              ],
+                            ),
+                          )),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 0),
+                      itemCount: 20),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -31,9 +31,12 @@ class MyProfilePage extends StatelessWidget {
                       Container(),
                       CustomText(text: 'My Profile', myweight: FontWeight.bold),
                       GestureDetector(
-                          onTap: () {},
-                          child:
-                              SvgPicture.asset('assets/icons/edit_icon.svg')),
+                        onTap: () {
+                          navigatePush(
+                              context: context, destination: AccountInfo());
+                        },
+                        child: SvgPicture.asset('assets/icons/edit_icon.svg'),
+                      ),
                     ],
                   ),
                   const Spacer(),

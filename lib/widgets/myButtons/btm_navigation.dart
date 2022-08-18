@@ -88,7 +88,7 @@ class HomeButtons extends StatelessWidget {
           SvgPicture.asset(asset),
           CustomText(
             text: btnText,
-            size: size * 0.025,
+            size: size * 0.020,
           ),
         ],
       ),

@@ -18,32 +18,44 @@ class _MyListViewState extends State<MyListView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       appBar: MyAppBar(
         title: 'Recent Transactions',
         widget: Container(),
       ),
       body: SafeArea(
-        child: Column(
+        child: Stack(
+          alignment: Alignment(-0.5, 0.5),
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: SizedBox(
-                height: appSize(context, 'h') / 1.5,
-                child: ListView.separated(
-                    itemBuilder: ((context, index) => PageBuilder()),
-                    separatorBuilder: (context, index) => SizedBox(height: 5),
-                    itemCount: 15),
-              ),
+            Column(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: defaultPadding),
+                  child: SizedBox(
+                    height: appSize(context, 'h') * 0.875,
+                    child: ListView.separated(
+                      itemBuilder: ((context, index) => PageBuilder()),
+                      separatorBuilder: (context, index) => SizedBox(height: 5),
+                      itemCount: 30,
+                    ),
+                  ),
+                ),
+              ],
             ),
+            AnimSearchBar(
+                width: 500,
+                textController: textController,
+                onSuffixTap: () {
+                  setState(() {
+                    textController.clear();
+                  });
+                }),
           ],
         ),
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColors.roundedBoxColor,
-        child: SvgPicture.asset('assets/images/search_icon.svg'),
-      ),
     );
   }
 }
